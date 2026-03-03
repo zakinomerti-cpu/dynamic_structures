@@ -1,5 +1,3 @@
 ﻿  funcArray.c
-C:\Users\Xinitrix\source\repos\dynamic_structures\funcArray.c(47,18): warning C4090: "=": разные квалификаторы "const"
-C:\Users\Xinitrix\source\repos\dynamic_structures\funcArray.c(48,11): warning C4090: "=": разные квалификаторы "const"
 LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/OPT:ICF"
   dynamic_structures.vcxproj -> C:\Users\Xinitrix\source\repos\dynamic_structures\x64\Release\dynamic_structures.exe

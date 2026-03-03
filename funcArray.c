@@ -16,6 +16,8 @@ char funcArrayRegisterFunction(funcArray* self, const char* name,
 	if(!name) return 0;
 	if(!func) return 0;
 	if(!desc) return 0;
+	if (!self->functions) return 0;
+
 	f = NULL;
 	tmp1 = NULL;
 	tmp2 = NULL;
@@ -25,34 +27,29 @@ char funcArrayRegisterFunction(funcArray* self, const char* name,
 		f = (funcArrayElement*)p;
 		if (!f) return 0;
 
-		tmp1 = MyStrdup(name);
-		tmp2 = MyStrdup(desc);
-		if (tmp1 && tmp2) {
-			free(f->name);
-			f->name = tmp1;
-			free(f->desctiption);
-			f->desctiption = tmp2;
-			f->function = func;
-			f->returnType = rt;
-		}
+		tmp1 = MyStrdup(name); if (!tmp1) { return 0; }
+		tmp2 = MyStrdup(desc); if (!tmp2) { free(tmp1); return 0; }
+
+		free(f->name);
+		f->name = tmp1;
+		free(f->desctiption);
+		f->desctiption = tmp2;
+		f->function = func;
+		f->returnType = rt;
 		return 1;
 	}
 
 	f = (funcArrayElement*)malloc(sizeof(funcArrayElement));
 	if (!f) return 0;
 
-	tmp1 = MyStrdup(name);
-	tmp2 = MyStrdup(desc);
-	if (tmp1 && tmp2) {
-		f->name = tmp1;
-		f->desctiption = tmp2;
-		f->function = func;
-		f->returnType = rt;
-		self->functions->addObject(self->functions, f, name);
-		return 1;
-	}
-
-	return 0;
+	tmp1 = MyStrdup(name); if (!tmp1) { free(f); return 0;}
+	tmp2 = MyStrdup(desc); if (!tmp2) { free(f); free(tmp1); return 0; }
+	f->name = tmp1;
+	f->desctiption = tmp2;
+	f->function = func;
+	f->returnType = rt;
+	self->functions->addObject(self->functions, f, name);
+	return 1;
 }
 
 void* funcArrayCallFunction(funcArray* self, const char* name, 
