@@ -5,28 +5,28 @@
 #include "dataArray.h"
 #include "stringTools.h"
 
-void funcArrayRegisterFunction(funcArray* self, const char* name, 
+char funcArrayRegisterFunction(funcArray* self, const char* name, 
 		void* (*func)(dataArray*, dataArray*), FuncReturnType rt,
 		const char* desc) 
 {	
 	char* tmp1;
 	char* tmp2;
 	funcArrayElement* f;
-	if(!self) return;
-	if(!name) return;
-	if(!func) return;
-	if(!desc) return;
+	if(!self) return 0;
+	if(!name) return 0;
+	if(!func) return 0;
+	if(!desc) return 0;
+	f = NULL;
 	tmp1 = NULL;
 	tmp2 = NULL;
-	f = NULL;
 
 	if (self->functions->objectIsExist(self->functions, name)) {
 		void* p = self->functions->getObject(self->functions, name);
 		f = (funcArrayElement*)p;
-		if (!f) return;
+		if (!f) return 0;
 
 		tmp1 = MyStrdup(name);
-		tmp2 = MyStrdup(name);
+		tmp2 = MyStrdup(desc);
 		if (tmp1 && tmp2) {
 			free(f->name);
 			f->name = tmp1;
@@ -35,19 +35,24 @@ void funcArrayRegisterFunction(funcArray* self, const char* name,
 			f->function = func;
 			f->returnType = rt;
 		}
-		return;
+		return 1;
 	}
 
 	f = (funcArrayElement*)malloc(sizeof(funcArrayElement));
-	if (!f) return;
-	f->desctiption = desc;
-	f->name = name;
-	f->function = func;
-	f->returnType = rt;
+	if (!f) return 0;
 
-	self->functions->addObject(self->functions, f, name);
-	return;
-	
+	tmp1 = MyStrdup(name);
+	tmp2 = MyStrdup(desc);
+	if (tmp1 && tmp2) {
+		f->name = tmp1;
+		f->desctiption = tmp2;
+		f->function = func;
+		f->returnType = rt;
+		self->functions->addObject(self->functions, f, name);
+		return 1;
+	}
+
+	return 0;
 }
 
 void* funcArrayCallFunction(funcArray* self, const char* name, 

@@ -1,8 +1,5 @@
 ﻿  funcArray.c
-C:\Users\Xinitrix\source\repos\dynamic_structures\funcArray.c(25,11): warning C4090: "=": разные квалификаторы "const"
-C:\Users\Xinitrix\source\repos\dynamic_structures\funcArray.c(28,18): warning C4090: "=": разные квалификаторы "const"
-C:\Users\Xinitrix\source\repos\dynamic_structures\funcArray.c(37,17): warning C4090: "=": разные квалификаторы "const"
-C:\Users\Xinitrix\source\repos\dynamic_structures\funcArray.c(38,10): warning C4090: "=": разные квалификаторы "const"
-C:\Users\Xinitrix\source\repos\dynamic_structures\funcArray.c(83,24): warning C4113: "void (__cdecl *)(funcArray *,const char *,void *(__cdecl *)(dataArray *,dataArray *),FuncReturnType,const char *)" отличается в списках параметров от "void (__cdecl *)(funcArray *,const char *,void *(__cdecl *)(void *,dataArray *),FuncReturnType,const char *)"
+C:\Users\Xinitrix\source\repos\dynamic_structures\funcArray.c(47,18): warning C4090: "=": разные квалификаторы "const"
+C:\Users\Xinitrix\source\repos\dynamic_structures\funcArray.c(48,11): warning C4090: "=": разные квалификаторы "const"
 LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/OPT:ICF"
   dynamic_structures.vcxproj -> C:\Users\Xinitrix\source\repos\dynamic_structures\x64\Release\dynamic_structures.exe

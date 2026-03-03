@@ -20,7 +20,7 @@ typedef struct funcArrayElement {
 
 typedef struct funcArray {
 	hashArray* functions;
-	void (*registerFunction)(struct funcArray*, const char* name, 
+	char (*registerFunction)(struct funcArray*, const char* name, 
 		void* (*func)(dataArray*, dataArray*), FuncReturnType rt, 
 		const char* desc);
 	void* (*callFunction)(struct funcArray*, const char* name, 
