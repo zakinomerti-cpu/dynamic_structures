@@ -9,30 +9,37 @@ void funcArrayRegisterFunction(funcArray* self, const char* name,
 		void* (*func)(dataArray*, dataArray*), FuncReturnType rt,
 		const char* desc) 
 {	
-	funcArrayElement* element;
+	funcArrayElement* f;
 	if(!self) return;
 	if(!name) return;
 	if(!func) return;
 	if(!desc) return;
+	f = NULL;
 
-	element = (funcArrayElement*)malloc(sizeof(funcArrayElement));
-	if (!element) return;
-
-	element->name = MyStrdup(name);
-	element->function = func;
-	element->returnType = rt;
-	element->desctiption = MyStrdup(desc);
-
-	if(self->functions->objectIsExist(self->functions, name)) {
+	if (self->functions->objectIsExist(self->functions, name)) {
 		void* p = self->functions->getObject(self->functions, name);
-		funcArrayElement* f = (funcArrayElement*)p;
+		f = (funcArrayElement*)p;
+
 		free(f->name);
+		f->name = name;
+
 		free(f->desctiption);
-		free(f);
-		f = element;
+		f->desctiption = desc;
+
+		f->function = func;
+		f->returnType = rt;
 		return;
 	}
-	self->functions->addObject(self->functions, element, name);
+
+	f = (funcArrayElement*)malloc(sizeof(funcArrayElement));
+	if (!f) return;
+	f->desctiption = desc;
+	f->name = name;
+	f->function = func;
+	f->returnType = rt;
+
+	return;
+	
 }
 
 void* funcArrayCallFunction(funcArray* self, const char* name, 

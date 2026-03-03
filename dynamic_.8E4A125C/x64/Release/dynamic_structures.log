@@ -1,0 +1,16 @@
+﻿  dataArray.c
+  funcArray.c
+C:\Users\Xinitrix\source\repos\dynamic_structures\funcArray.c(74,24): warning C4113: "void (__cdecl *)(funcArray *,const char *,void *(__cdecl *)(dataArray *,dataArray *),FuncReturnType,const char *)" отличается в списках параметров от "void (__cdecl *)(funcArray *,const char *,void *(__cdecl *)(void *,dataArray *),FuncReturnType,const char *)"
+  hashArray.c
+C:\Users\Xinitrix\source\repos\dynamic_structures\hashArray.c(20,55): warning C4244: функция: преобразование "uint64_t" в "int", возможна потеря данных
+C:\Users\Xinitrix\source\repos\dynamic_structures\hashArray.c(28,55): warning C4244: функция: преобразование "uint64_t" в "int", возможна потеря данных
+C:\Users\Xinitrix\source\repos\dynamic_structures\hashArray.c(31,51): warning C4244: функция: преобразование "uint64_t" в "int", возможна потеря данных
+C:\Users\Xinitrix\source\repos\dynamic_structures\hashArray.c(38,55): warning C4244: функция: преобразование "uint64_t" в "int", возможна потеря данных
+C:\Users\Xinitrix\source\repos\dynamic_structures\hashArray.c(44,55): warning C4244: функция: преобразование "uint64_t" в "int", возможна потеря данных
+C:\Users\Xinitrix\source\repos\dynamic_structures\hashArray.c(83,66): warning C4267: функция: преобразование из "size_t" в "int"; возможна потеря данных
+  main.c
+  stringTools.c
+C:\Users\Xinitrix\source\repos\dynamic_structures\stringTools.c(10,14): warning C4996: 'strcpy': This function or variable may be unsafe. Consider using strcpy_s instead. To disable deprecation, use _CRT_SECURE_NO_WARNINGS. See online help for details.
+  Создание кода...
+LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/OPT:ICF"
+  dynamic_structures.vcxproj -> C:\Users\Xinitrix\source\repos\dynamic_structures\x64\Release\dynamic_structures.exe
