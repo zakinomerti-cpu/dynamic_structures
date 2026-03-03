@@ -39,6 +39,8 @@ void funcArrayRegisterFunction(funcArray* self, const char* name,
 	f->function = func;
 	f->returnType = rt;
 
+	self->functions->addObject(self->functions, f, name);
+
 	return;
 	
 }
