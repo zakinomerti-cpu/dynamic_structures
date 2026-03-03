@@ -19,6 +19,7 @@ void funcArrayRegisterFunction(funcArray* self, const char* name,
 	if (self->functions->objectIsExist(self->functions, name)) {
 		void* p = self->functions->getObject(self->functions, name);
 		f = (funcArrayElement*)p;
+		if (!f) return;
 
 		free(f->name);
 		f->name = name;
