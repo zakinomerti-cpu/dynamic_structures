@@ -21,7 +21,7 @@ typedef struct funcArrayElement {
 typedef struct funcArray {
 	hashArray* functions;
 	void (*registerFunction)(struct funcArray*, const char* name, 
-		void* (*func)(void*, dataArray*), FuncReturnType rt, 
+		void* (*func)(dataArray*, dataArray*), FuncReturnType rt, 
 		const char* desc);
 	void* (*callFunction)(struct funcArray*, const char* name, 
 		dataArray* in, dataArray* out);

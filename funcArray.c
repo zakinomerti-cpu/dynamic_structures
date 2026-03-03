@@ -22,10 +22,10 @@ void funcArrayRegisterFunction(funcArray* self, const char* name,
 		if (!f) return;
 
 		free(f->name);
-		f->name = name;
+		f->name = MyStrdup(name);
 
 		free(f->desctiption);
-		f->desctiption = desc;
+		f->desctiption = MyStrdup(desc);
 
 		f->function = func;
 		f->returnType = rt;
