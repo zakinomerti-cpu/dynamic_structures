@@ -9,11 +9,15 @@ void funcArrayRegisterFunction(funcArray* self, const char* name,
 		void* (*func)(dataArray*, dataArray*), FuncReturnType rt,
 		const char* desc) 
 {	
+	char* tmp1;
+	char* tmp2;
 	funcArrayElement* f;
 	if(!self) return;
 	if(!name) return;
 	if(!func) return;
 	if(!desc) return;
+	tmp1 = NULL;
+	tmp2 = NULL;
 	f = NULL;
 
 	if (self->functions->objectIsExist(self->functions, name)) {
@@ -21,14 +25,16 @@ void funcArrayRegisterFunction(funcArray* self, const char* name,
 		f = (funcArrayElement*)p;
 		if (!f) return;
 
-		free(f->name);
-		f->name = MyStrdup(name);
-
-		free(f->desctiption);
-		f->desctiption = MyStrdup(desc);
-
-		f->function = func;
-		f->returnType = rt;
+		tmp1 = MyStrdup(name);
+		tmp2 = MyStrdup(name);
+		if (tmp1 && tmp2) {
+			free(f->name);
+			f->name = tmp1;
+			free(f->desctiption);
+			f->desctiption = tmp2;
+			f->function = func;
+			f->returnType = rt;
+		}
 		return;
 	}
 
