@@ -16,6 +16,8 @@ void funcArrayRegisterFunction(funcArray* self, const char* name,
 	if(!desc) return;
 
 	element = (funcArrayElement*)malloc(sizeof(funcArrayElement));
+	if (!element) return;
+
 	element->name = MyStrdup(name);
 	element->function = func;
 	element->returnType = rt;
@@ -26,8 +28,8 @@ void funcArrayRegisterFunction(funcArray* self, const char* name,
 		funcArrayElement* f = (funcArrayElement*)p;
 		free(f->name);
 		free(f->desctiption);
-		free(f->function);
-
+		free(f);
+		f = element;
 		return;
 	}
 	self->functions->addObject(self->functions, element, name);
