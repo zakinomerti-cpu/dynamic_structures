@@ -40,7 +40,6 @@ void funcArrayRegisterFunction(funcArray* self, const char* name,
 	f->returnType = rt;
 
 	self->functions->addObject(self->functions, f, name);
-
 	return;
 	
 }
