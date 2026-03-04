@@ -1,0 +1,9 @@
+﻿  main.c
+C:\Users\Xinitrix\source\repos\dynamic_structures\testApp\main.c(20,30): warning C4047: функция: "value *" отличается по уровням косвенного обращения от "int"
+C:\Users\Xinitrix\source\repos\dynamic_structures\testApp\main.c(20,30): warning C4024: функция по указателю: различные типы для формального и фактического параметров 2
+  Создание кода
+  1 of 14 functions ( 7.1%) were compiled, the rest were copied from previous compilation.
+    0 functions were new in current compilation
+    0 functions had inline decision re-evaluated but remain unchanged
+  Создание кода завершено
+  testApp.vcxproj -> C:\Users\Xinitrix\source\repos\dynamic_structures\x64\Release\testApp.exe

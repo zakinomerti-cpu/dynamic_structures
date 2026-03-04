@@ -1,3 +1,1 @@
-﻿  funcArray.c
-LINK : warning LNK4075: не учитывается "/INCREMENTAL" из-за спецификации "/OPT:ICF"
-  dynamic_structures.vcxproj -> C:\Users\Xinitrix\source\repos\dynamic_structures\x64\Release\dynamic_structures.exe
+﻿

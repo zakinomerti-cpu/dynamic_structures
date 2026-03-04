@@ -1,0 +1,6 @@
+﻿  main.c
+  refArray.c
+C:\Users\Xinitrix\source\repos\dynamic_structures\testApp\refArray.c(44,13): warning C4033: "refArrayPublic_size" должен возвращать значение
+  Создание кода...
+C:\Users\Xinitrix\source\repos\dynamic_structures\testApp\refArray.c(46,1): warning C4715: refArrayPublic_size: значение возвращается не при всех путях выполнения
+  testApp.vcxproj -> C:\Users\Xinitrix\source\repos\dynamic_structures\x64\Debug\testApp.exe

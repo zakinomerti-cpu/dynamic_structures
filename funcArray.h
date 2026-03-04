@@ -6,6 +6,7 @@ typedef struct dataArray dataArray;
 
 typedef enum {
 	FUNC_RET_INT,
+	FUNC_RET_CHAR,
 	FUNC_RET_STRING,
 	FUNC_RET_POINTER,
 	FUNC_RET_VOID,
